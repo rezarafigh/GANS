@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GAN Drawing App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upload your drawing</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <input type="submit" value="Upload Image">
+    </form>
+    {% if user_image %}
+        <h2>Original Image:</h2>
+        <img src="{{ url_for('static', filename=user_image) }}">
+        <h2>Generated Image:</h2>
+        <img src="{{ url_for('static', filename=generated_image) }}">
+    {% endif %}
+</body>
+</html>
